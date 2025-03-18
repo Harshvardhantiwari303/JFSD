@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital Clock with toggle Theme</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            background: white;
+            color: black;
+            transition: 0.2s;
+            padding: 70px;
+            margin-top: 50px;
+
+        }
+
+        .theme {
+            background-color: black;
+            color: #b8744a;
+        }
+
+        .clock-container {
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(rgb(249, 2, 2), rgb(177, 113, 113));
+            color: white;
+            font-size: xx-large;
+        }
+
+        .date-container {
+            border-radius: 10px;
+            padding: 15px;
+            background: linear-gradient(rgb(32, 153, 201), rgb(137, 193, 215));
+            color: white;
+            font-size: x-large;
+            margin-top: 12px;
+
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgb(120, 172, 69);
+            color: whitesmoke;
+            border-radius: 100px;
+            font-size: larger;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1><i><u>DIGITAL CLOCK</u></i></h1>
+        <div class="clock-container" id="clock">00:00:00</div>
+        <div class="date-container" id="date">buffering...</div>
+        <button onclick="toggleTheme()">Toggle</button>
+    </div>
+
+    <script>
+        function digitalClock() {
+            let now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+            document.getElementById("date").textContent = now.toDateString();
+        }
+        setInterval(digitalClock, 1000);
+        digitalClock();
+
+        function toggleTheme() {
+            document.body.classList.toggle("theme");
+        }
+
+
+    </script>
+</body>
+
+</html>
